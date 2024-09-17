@@ -1,0 +1,38 @@
+{
+  "Separator Create": {
+    "prefix": "create",
+    "body": [
+      "",
+      "\n//--------------------Create------------------------//",
+      "$0"
+    ],
+    "description": "Crud separator"
+  },
+  "Separator Read": {
+    "prefix": "read",
+    "body": [
+      "",
+      "\n//--------------------Read--------------------------//",
+      "$0"
+    ],
+    "description": "Crud separator"
+  },
+  "Separator Update": {
+    "prefix": "update",
+    "body": [
+      "",
+      "\n//--------------------Update------------------------//",
+      "$0"
+    ],
+    "description": "Crud separator"
+  },
+  "Separator Delete": {
+    "prefix": "delete",
+    "body": [
+      "",
+      "\n//--------------------Delete------------------------//",
+      "$0"
+    ],
+    "description": "Crud separator"
+  }
+}

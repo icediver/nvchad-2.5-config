@@ -1,0 +1,148 @@
+{
+  "hook": {
+        "prefix": "hook",
+        "body": ["export const ${TM_FILENAME_BASE} = () => ${1}"],
+        "description": "create a new hook"
+  },
+  "imrs": {
+        "prefix": "imrs",
+        "body": ["import styles from './${1}${TM_FILENAME_BASE}.module.scss'"],
+        "description": "add import styles module"
+  },
+  "usf": {
+    "prefix": ["usf"],
+    "body": ["useEffect(() => ${1},[])"]
+  },
+  "use state": {
+    "prefix": "uss",
+    "body": ["const [$1, set${1/(.*)/${1:/capitalize}/}] = useState($2);"],
+    "description": "creates use state"
+  },
+"Next 13.4 | Page SEO component": {
+		"prefix": "pncs",
+		"body": [
+			"import type { Metadata } from 'next'",
+			"",
+			"export const metadata: Metadata = {",
+			"  title: '${1}',",
+			"  description: '${2}'",
+			"}",
+			"",
+			"export default function ${3}Page() {",
+			"  return <div>${4}</div>",
+			"}",
+			""
+		],
+		"description": "Next 13.4 | Page SEO component"
+	},
+	"Next 13.4 | Page no index component": {
+		"prefix": "pnc",
+		"body": [
+			"import type { Metadata } from 'next'",
+			"",
+			"import { NO_INDEX_PAGE } from '@/constants/seo.constants'",
+			"",
+			"export const metadata: Metadata = {",
+			"\ttitle: '${1}',",
+			"\t...NO_INDEX_PAGE",
+			"}",
+			"",
+			"export default function ${2}Page() {",
+			"\treturn <div>${3}</div>",
+			"}",
+			""
+		],
+		"description": "Next 13.4 | Page no index component"
+	},
+	"Next 13.4 | Layout component": {
+		"prefix": "lnc",
+		"description": "Next 13.4 | Layout component",
+		"body": [
+			"import type { PropsWithChildren } from 'react'",
+			"",
+			"export default function Layout({ children }: PropsWithChildren<unknown>) {",
+			"\treturn <div>${1}{children}</div>",
+			"}",
+			""
+		]
+	},
+	"Next 13.4 | Client component": {
+		"prefix": "cnc",
+		"description": "Next 13.4 | Client component",
+		"body": [
+			"'use client'",
+			"",
+			"interface I${TM_FILENAME_BASE} {}",
+			"",
+			"export function ${TM_FILENAME_BASE}({}: I${TM_FILENAME_BASE}) {",
+			"\treturn <div>${TM_FILENAME_BASE}</div>",
+			"}",
+			""
+		]
+	},
+	"Next 13.4 | Simple component": {
+		"prefix": "nc",
+		"description": "Next 13.4 | Client component",
+		"body": [
+			"export function ${TM_FILENAME_BASE}() {",
+			"\treturn <div>${TM_FILENAME_BASE}</div>",
+			"}",
+			""
+		]
+	},
+	"Next 13.4 | Simple component with interface": {
+		"prefix": "nci",
+		"description": "Next 13.4 | Client component",
+		"body": [
+			"interface I${TM_FILENAME_BASE} {}",
+			"",
+			"export function ${TM_FILENAME_BASE}({}: I${TM_FILENAME_BASE}) {",
+			"\treturn <div>${TM_FILENAME_BASE}</div>",
+			"}",
+			""
+		]
+	},
+	"Next 13.4 | generateMetaData": {
+		"prefix": "gmd",
+		"description": "Next 13.4 | generateMetaData",
+		"body": [
+			"import type { Metadata } from 'next'",
+			"",
+			"export async function generateMetadata({",
+			"  params,",
+			"}: {",
+			"  params: { ${slug} }",
+			"}): Promise<Metadata> {",
+			"  const product = await ${getData}(${slug})",
+			"  return { title: product.title }",
+			"}"
+		]
+	},
+	"Next 13.4 | metadata": {
+		"prefix": "md",
+		"description": "Next 13.4 | metadata",
+		"body": [
+			"import type { Metadata } from 'next'",
+			"",
+			"export const metadata: Metadata = {",
+			"\ttitle: '${1}',",
+			"\tdescription: '${2}'",
+			"}"
+		]
+	},
+	"Next 13.4 | generateStaticParams for Dynamic Page Static": {
+		"prefix": "gsp",
+		"description": "Next 13.4 | generateStaticParams for Dynamic Page Static",
+		"body": [
+			"export async function generateStaticParams() {",
+			"  const posts = await fetch(\"${fetch url}\").then(res => res.json())",
+			"",
+			"  return posts.map(post => ({",
+			"    slug: post.slug,",
+			"  }))",
+			"}",
+			""
+		]
+	}
+
+}
