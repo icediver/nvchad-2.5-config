@@ -102,7 +102,7 @@ local options = {
     end, { "i", "s" }),
   },
   sources = {
-    { name = "luasnip", priority = 1000, keyword_length = 3 },
+    { name = "luasnip", priority = 1000, keyword_length = 2 },
     { name = "nvim_lsp" },
     { name = "buffer" },
     { name = "nvim_lua" },

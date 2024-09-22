@@ -281,7 +281,7 @@ return {
   },
   {
     "NvChad/nvim-colorizer.lua",
-    -- enabled = true
+    enabled = true,
     opts = {
       user_default_options = {
         tailwind = true,
@@ -329,6 +329,8 @@ return {
       require("nvim-ts-autotag").setup {
         ["tsx"] = {
           ensble_rename = true,
+          enable_close = true,
+          enable_slash = true,
         },
       }
     end,
@@ -378,5 +380,31 @@ return {
     opts = function()
       return require "nvchad.configs.cmp"
     end,
+  },
+  -- {
+  --   "mattn/emmet-vim",
+  --   lazy = false,
+  -- },
+  { "nvchad/volt", lazy = true },
+  {
+    "nvchad/minty",
+    lazy = true,
+    dependencies = { "nvchad/volt" },
+    keys = {
+      {
+        "<leader>oc",
+        function()
+          require("minty.huefy").toggle()
+        end,
+        desc = "Open color picker",
+      },
+      {
+        "<leader>os",
+        function()
+          require("minty.shades").toggle()
+        end,
+        desc = "Open color shades",
+      },
+    },
   },
 }

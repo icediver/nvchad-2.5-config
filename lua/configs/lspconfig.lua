@@ -7,7 +7,8 @@ local capabilities = configs.capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "ts_ls", "clangd", "gopls", "gradle_ls" }
+local servers =
+  { "html", "cssls", "ts_ls", "clangd", "gopls", "gradle_ls", "tailwindcss", "prismals", "emmet_ls", "jsonls" }
 
 local function organize_imports()
   local params = {
@@ -38,12 +39,40 @@ for _, lsp in ipairs(servers) do
     },
   }
   lspconfig.prismals.setup {}
+  lspconfig.jsonls.setup {}
   lspconfig.volar.setup {
     on_attach = on_attach,
     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
     init_options = {
       vue = {
         hybridMode = false,
+      },
+    },
+  }
+  lspconfig.emmet_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = {
+      "css",
+      "eruby",
+      "html",
+      "javascript",
+      "javascriptreact",
+      "less",
+      "sass",
+      "scss",
+      "svelte",
+      "pug",
+      "typescriptreact",
+      "vue",
+    },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          -- ["output.selfClosingStyle"] = "xhtml",
+          ["bem.enabled"] = true,
+        },
       },
     },
   }

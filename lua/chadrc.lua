@@ -34,6 +34,13 @@ M.ui = {
       bg = "#737373",
       fg = "none",
     },
+    CursorLineNr = {
+      bg = "#ffffff",
+    },
+    LineNr = {
+      fg = "#a0a0a0",
+      bg = "none",
+    },
   },
 }
 
