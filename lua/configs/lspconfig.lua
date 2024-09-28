@@ -7,8 +7,18 @@ local capabilities = configs.capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers =
-  { "html", "cssls", "ts_ls", "clangd", "gopls", "gradle_ls", "tailwindcss", "prismals", "emmet_ls", "jsonls" }
+local servers = {
+  "html",
+  "cssls",
+  "ts_ls",
+  "clangd",
+  "gopls",
+  "gradle_ls",
+  "tailwindcss",
+  "prismals",
+  "emmet_language_server",
+  "jsonls",
+}
 
 local function organize_imports()
   local params = {
@@ -40,6 +50,22 @@ for _, lsp in ipairs(servers) do
   }
   lspconfig.prismals.setup {}
   lspconfig.jsonls.setup {}
+  lspconfig.tailwindcss.setup {
+    settings = {
+      emmetComlections = true,
+      tailwindCSS = {
+        lint = {
+          cssConflict = "warning",
+          invalidApply = "error",
+          invalidConfigPath = "error",
+          invalidScreen = "error",
+          invalidTailwindDirective = "error",
+          invalidVariant = "error",
+          recommendedVariantOrder = "warning",
+        },
+      },
+    },
+  }
   lspconfig.volar.setup {
     on_attach = on_attach,
     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
@@ -49,9 +75,7 @@ for _, lsp in ipairs(servers) do
       },
     },
   }
-  lspconfig.emmet_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+  lspconfig.emmet_language_server.setup {
     filetypes = {
       "css",
       "eruby",
@@ -61,19 +85,63 @@ for _, lsp in ipairs(servers) do
       "less",
       "sass",
       "scss",
-      "svelte",
       "pug",
       "typescriptreact",
-      "vue",
     },
+    -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+    -- **Note:** only the options listed in the table are supported.
     init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          -- ["output.selfClosingStyle"] = "xhtml",
-          ["bem.enabled"] = true,
-        },
+      ---@type table<string, string>
+      includeLanguages = {
+        -- javascript = "javascriptreact",
+        -- javascriptreact = "jsx",
+        -- typescriptreact = "css",
       },
+      --- @type string[]
+      excludeLanguages = {},
+      --- @type string[]
+      extensionsPath = {
+        vim.fn.stdpath "config" .. "/emmet",
+      },
+      --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+      preferences = {},
+      --- @type boolean Defaults to `true`
+      showAbbreviationSuggestions = true,
+      --- @type "always" | "never" Defaults to `"always"`
+      showExpandedAbbreviation = "always",
+      --- @type boolean Defaults to `false`
+      showSuggestionsAsSnippets = false,
+      --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+      syntaxProfiles = {},
+      --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+      variables = {},
     },
   }
+  -- lspconfig.emmet_ls.setup {
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   filetypes = {
+  --     "css",
+  --     "eruby",
+  --     "html",
+  --     "javascript",
+  --     "javascriptreact",
+  --     "less",
+  --     "sass",
+  --     "scss",
+  --     "svelte",
+  --     "pug",
+  --     "typescriptreact",
+  --     "vue",
+  --   },
+  --   init_options = {
+  --     html = {
+  --       options = {
+  --         -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+  --         -- ["output.selfClosingStyle"] = "xhtml",
+  --         ["bem.enabled"] = true,
+  --       },
+  --     },
+  --   },
+  -- }
 end

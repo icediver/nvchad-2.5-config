@@ -9,14 +9,20 @@
     "body": ["import styles from './${1}${TM_FILENAME_BASE}.module.scss'"],
     "description": "add import styles module"
   },
+  "cl": {
+    "prefix": "cl",
+    "body": ["className='${1}'"],
+    "description": "add className"
+  },
+  "cn": {
+    "prefix": "cn",
+    "body": ["className={cn(${1})}"],
+    "description": "add className={cn()}"
+  },
+
   "usf": {
     "prefix": ["usf"],
     "body": ["useEffect(() => ${1},[])"]
-  },
-  "use state": {
-    "prefix": "uss",
-    "body": ["const [$1, set${1/(.*)/${1:/capitalize}/}] = useState($2);"],
-    "description": "creates use state"
   },
   "Next 13.4 | Page SEO component": {
     "prefix": "pncs",

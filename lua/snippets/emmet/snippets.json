@@ -1,0 +1,42 @@
+{
+  "html": {
+    "snippets": {
+      "ull": "ul>li[id=${1} class=${2}]*2{ Will work with html, pug, haml and slim }",
+      "oll": "<ol><li id=${1} class=${2}> Will only work in html </ol>",
+      "ran": "{ Wrap plain text in curly braces }"
+    }
+  },
+  "css": {
+    "snippets": {
+      "cb": "color: black",
+      "bsd": "border: 1px solid ${1:red}",
+      "ls": "list-style: ${1}",
+      "btm": "bottom",
+      "b": "border:${1:1px} ${2:solid} ${3:#000}",
+      "bb": "border-bottom:${1:1px} ${2:solid} ${3:#000}",
+      "bbc": "border-bottom-color:${1:#000}",
+      "bblrs": "border-bottom-left-radius",
+      "bbrrs": "border-bottom-right-radius",
+      "bbs": "border-bottom-style",
+      "bbw": "border-bottom-width",
+      "bc": "border-color:${1:#000}",
+      "bl": "border-left:${1:1px} ${2:solid} ${3:#000}",
+      "blc": "border-left-color:${1:#000}",
+      "bls": "border-left-style",
+      "blw": "border-left-width",
+      "br": "border-right:${1:1px} ${2:solid} ${3:#000}",
+      "brc": "border-right-color:${1:#000}",
+      "brs": "border-radius",
+      "brst": "border-right-style",
+      "brw": "border-right-width",
+      "bs": "border-style:none|hidden|dotted|dashed|solid|double|dot-dash|dot-dot-dash|wave|groove|ridge|inset|outset",
+      "bt": "border-top:${1:1px} ${2:solid} ${3:#000}",
+      "btc": "border-top-color:${1:#000}",
+      "btlrs": "border-top-left-radius",
+      "btrrs": "border-top-right-radius",
+      "bts": "border-top-style",
+      "btw": "border-top-width",
+      "bw": "border-width"
+    }
+  }
+}

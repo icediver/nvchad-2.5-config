@@ -6,13 +6,13 @@ local cmp_ui = require("nvconfig").ui.cmp
 local cmp_style = cmp_ui.style
 
 local field_arrangement = {
-  atom = { "kind", "abbr", "menu" },
-  atom_colored = { "kind", "abbr", "menu" },
+  atom = { "menu", "abbr", "kind" },
+  atom_colored = { "menu", "abbr", "kind" },
 }
 
 local formatting_style = {
   -- default fields order i.e completion word + item.kind + item.kind icons
-  fields = field_arrangement[cmp_style] or { "abbr", "kind", "menu" },
+  fields = field_arrangement[cmp_style] or { "menu", "abbr", "kind" },
 
   format = function(_, item)
     local icons = require "nvchad.icons.lspkind"
@@ -102,7 +102,8 @@ local options = {
     end, { "i", "s" }),
   },
   sources = {
-    { name = "luasnip", priority = 1000, keyword_length = 2 },
+    { name = "luasnip", priority = 5000 },
+    { name = "emmet_ls" },
     { name = "nvim_lsp" },
     { name = "buffer" },
     { name = "nvim_lua" },

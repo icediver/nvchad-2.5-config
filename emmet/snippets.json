@@ -1,0 +1,46 @@
+{
+  "html": {
+    "snippets": {
+      "ull": "ul>li.item${${1:Item $}}*3",
+      "hsf": "header+section+footer",
+      "gfont": "link[rel=preconnect][href=\"https://fonts.gstatic.com\"]+link[href=\"https://fonts.googleapis.com/css2?family=${1:Open+Sans}&display=swap\"]",
+      "lbi": "label>input[class]",
+      "lbc": "label>input:c[class]+{$1}",
+      "cl": "className='{$1}'"
+    }
+  },
+  "jsx": {
+    "snippets": {
+      "cl": "className='{$1}'"
+    }
+  },
+  "css": {
+    "snippets": {
+      "bn": "border: none",
+      "on": "outline: none",
+      "bsd": "border: ${1:1px} solid ${2:red}",
+      "cw": "color: white",
+      "cb": "color: black",
+      "tra": "transition: ${1:all} ${2:0.3s} ${3:cubic-bezier(0.25, 0.8, 0.25, 1)}",
+      "teo": "transition: ${1:all} ${2:0.2s} ease-out",
+      "tei": "transition: ${1:all} ${2:0.2s} ease-in",
+      "fww": "flex-wrap: wrap",
+      "cp": "cursor: pointer",
+      "tt": "transform: translate(${1:0px}, ${2:0px})",
+      "ttx": "transform: translateX(${1:0px})",
+      "tty": "transform: translateY(${1:0px})",
+      "tr": "transform: rotate(${1:90deg})",
+      "pen": "pointer-events: none",
+      "fdc": "flex-direction: column",
+      "fdcr": "flex-direction: column-reverse",
+      "fdr": "flex-direction: row",
+      "fdrr": "flex-direction: row-reverse",
+      "cl": "className='{$1}'"
+    }
+  },
+  "typescriptreact": {
+    "snippets": {
+      "cl": "className='{$1}'"
+    }
+  }
+}
