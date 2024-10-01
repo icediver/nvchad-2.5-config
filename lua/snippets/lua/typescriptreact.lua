@@ -16,6 +16,9 @@ local su = require "snippets.lua.common.snip_utils"
 local nl = su.new_line
 local te = su.trig_engine
 local jt = su.join_text
+local function page_name(_, parent)
+  return sn(nil, i(1, su.dir_name(parent)))
+end
 
 return {
   s(
@@ -73,4 +76,75 @@ return {
     i(2, "null", { key = "i2" }),
     t ")",
   }),
+  s(
+    "cl",
+    fmt("className={}", {
+      c(1, {
+        { t "'", i(1), t "'" },
+        { t "{", i(1), t "}" },
+        { t "{clsx(", i(1), t ")}" },
+        { t "{cn(", i(1), t ")}" },
+      }),
+    })
+  ),
+  s({
+    trig = "pns",
+    name = "Simple page",
+    dscr = "Next.js simple page",
+    priority = 5000,
+  }, {
+    t "export default function ",
+    f(function(args, parent)
+      return su.dir_name(parent)
+    end),
+    t " () {",
+    nl(),
+    t "return <div>",
+    f(function(args, parent)
+      return su.dir_name(parent)
+    end),
+
+    t "</div>",
+    nl(),
+    t "}",
+  }),
+  s(
+    {
+      trig = "ps",
+      name = "Simple Nextjs page",
+      dscr = "Next.js simple page",
+      priority = 5000,
+    },
+    fmt(
+      [[export default function {}Page ()  {{
+          return <div>Page {}</div>
+    }}
+    ]],
+      {
+        d(1, page_name),
+        rep(1),
+      }
+    )
+  ),
+  s(
+    {
+      trig = "psp",
+      name = "Simple Nextjs page with id params",
+      dscr = "Next.js simple page with id params",
+      priority = 5000,
+    },
+    fmt(
+      [[export default function {}Page({{
+	params,
+}}: {{
+	params: {{ id: string }};
+}}) {{
+	return <div>{} Page</div>;
+}}    ]],
+      {
+        d(1, page_name),
+        rep(1),
+      }
+    )
+  ),
 }

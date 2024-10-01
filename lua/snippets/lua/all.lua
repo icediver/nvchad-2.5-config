@@ -81,4 +81,43 @@ return {
       )
     end, {})
   ),
+  s(
+    "logc",
+    fmt([[Debug.Log($"<color={}>{}</color>");]], {
+      c(1, {
+        t "red",
+        t "green",
+        t "blue",
+        t "cyan",
+        t "magenta",
+      }),
+      i(2),
+    })
+  ),
+  s("co", {
+    t "position([",
+    f(function()
+      local register_data = vim.fn.getreg() .. ""
+      if string.match(register_data, "[%d-]+,%s*[%d-]+") then
+        return register_data
+      else
+        print "register does not contain the pattern"
+      end
+    end),
+    t "])",
+  }),
+  s("com", {
+    d(function()
+      local register_data = vim.fn.getreg() .. ""
+      if string.match(register_data, "[%d-]+,%s*[%d-]+") then
+        return sn(nil, {
+          t("position([" .. register_data .. "])"),
+        })
+      else
+        print "register does not contain the pattern"
+        return sn(nil, {})
+      end
+    end),
+    i(1),
+  }),
 }

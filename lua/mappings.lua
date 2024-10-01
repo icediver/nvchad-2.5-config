@@ -1,6 +1,7 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+local ls = require "luasnip"
 
 -- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save" })
@@ -82,3 +83,23 @@ map("i", "<C-g>", function()
 end, { expr = true })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- Snippets
+
+map({ "i", "s" }, "<A-n>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end)
+
+map({ "i", "s" }, "<A-k>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
+
+map({ "i", "s" }, "<A-j>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })

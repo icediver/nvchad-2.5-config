@@ -3,13 +3,21 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
-    javascript = { "prettier" },
-    typescript = { "prettier" },
-    typescriptreact = { "prettier" },
-    javascriptreact = { "prettier" },
+    javascript = { "prettierd" },
+    typescript = { "prettierd" },
+    typescriptreact = { "prettierd" },
+    javascriptreact = { "prettierd" },
     json = { "prettier" },
     yaml = { "prettier" },
     markdown = { "prettier" },
+  },
+
+  formatters = {
+    prettierd = {
+      prepend_args = {
+        "--single-attribute-per-line",
+      },
+    },
   },
 
   format_on_save = {

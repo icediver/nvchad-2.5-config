@@ -18,6 +18,7 @@ local servers = {
   "prismals",
   "emmet_language_server",
   "jsonls",
+  "ts_ls",
 }
 
 local function organize_imports()
@@ -48,11 +49,37 @@ for _, lsp in ipairs(servers) do
       },
     },
   }
+
+  lspconfig.ts_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      typescriptreact = {
+        lint = {
+
+          --
+        },
+      },
+    },
+  }
+
   lspconfig.prismals.setup {}
+  lspconfig.cssls.setup {
+    settings = {
+      css = {
+        lint = {
+          unknownAtRules = "ignore",
+        },
+      },
+    },
+  }
   lspconfig.jsonls.setup {}
   lspconfig.tailwindcss.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "css", "scss", "html" },
     settings = {
-      emmetComlections = true,
+      emmetCompletions = true,
       tailwindCSS = {
         lint = {
           cssConflict = "warning",
