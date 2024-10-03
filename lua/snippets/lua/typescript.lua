@@ -147,19 +147,4 @@ return {
       }
     )
   ),
-  s(
-    {
-      trig = "ls",
-      name = "Simple Nextjs layout",
-      dscr = "Next.js simple layout",
-      priority = 5000,
-    },
-    fmt(
-      [[export default function {}layout ({{ children }}: {{ children: Rect.ReactNode }})  {{
-          return <div>{{children}}</div>
-    }}
-    ]],
-      d(1, page_name)
-    )
-  ),
 }

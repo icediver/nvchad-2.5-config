@@ -73,7 +73,7 @@
     "body": [
       "'use client'",
       "",
-      "interface I${TM_FILENAME_BASE} {}",
+      "interface I${TM_FILENAME_BASE} {${1}}",
       "",
       "export function ${TM_FILENAME_BASE}({}: I${TM_FILENAME_BASE}) {",
       "\treturn <div>${TM_FILENAME_BASE}</div>",
@@ -95,9 +95,9 @@
     "prefix": "nci",
     "description": "Next 13.4 | Client component",
     "body": [
-      "interface I${TM_FILENAME_BASE} {}",
+      "interface I${TM_FILENAME_BASE} {${1}}",
       "",
-      "export function ${TM_FILENAME_BASE}({}: I${TM_FILENAME_BASE}) {",
+      "export function ${TM_FILENAME_BASE}({${2}}: I${TM_FILENAME_BASE}) {",
       "\treturn <div>${TM_FILENAME_BASE}</div>",
       "}",
       ""
