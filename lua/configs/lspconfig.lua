@@ -21,24 +21,24 @@ local servers = {
   "ts_ls",
 }
 
-local function organize_imports()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = { vim.api.nvim_buf_get_name(0) },
-  }
-  vim.lsp.buf.execute_command(params)
-end
+-- local function organize_imports()
+--   local params = {
+--     command = "_typescript.organizeImports",
+--     arguments = { vim.api.nvim_buf_get_name(0) },
+--   }
+--   vim.lsp.buf.execute_command(params)
+-- end
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    commands = {
-      OrganizeImports = {
-        organize_imports,
-        description = "Organize Imports",
-      },
-    },
+    -- commands = {
+    --   OrganizeImports = {
+    --     organize_imports,
+    --     description = "Organize Imports",
+    --   },
+    -- },
     settings = {
       gopls = {
         completeUnimported = true,

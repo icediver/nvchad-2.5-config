@@ -16,6 +16,7 @@ local options = {
     prettierd = {
       prepend_args = {
         "--single-attribute-per-line",
+        "--no-bracket-same-line",
       },
     },
   },

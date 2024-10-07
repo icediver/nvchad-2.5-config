@@ -135,12 +135,12 @@ return {
     },
     fmt(
       [[export default function {}Page({{
-	params,
-}}: {{
-	params: {{ id: string }};
-}}) {{
-	return <div>{} Page</div>;
-}}    ]],
+      params,
+      }}: {{
+      params: {{ id: string }};
+      }}) {{
+      return <div>{} Page</div>;
+      }}    ]],
       {
         d(1, page_name),
         rep(1),
